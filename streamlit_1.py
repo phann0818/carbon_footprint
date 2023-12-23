@@ -45,12 +45,11 @@ st.set_page_config(
     page_icon="🌱",
     layout="centered",
     initial_sidebar_state="auto",
-    menu_items={
-        'About': "# nghĩ sau chứ chưa nghĩ ra"
     }
 )
 # Streamlit app code
-# st.title("Personal Carbon Calculator")
+st.title("Personal :green[Carbon Calculator]")
+st.subheader("About: nghĩ sau lừi we")
 
 # User inputs
 st.subheader("🌍 Your Country")
