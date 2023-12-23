@@ -87,13 +87,12 @@ transportation_emissions = round(transportation_emissions / 1000, 2)
 electricity_emissions = round(electricity_emissions / 1000, 2)
 diet_emissions = round(diet_emissions / 1000, 2)
 waste_emissions = round(waste_emissions / 1000, 2)
-average_emissions = round(average_emissions / 1000, 2)
 
 # Calculate total emissions
 total_emissions = round(
     transportation_emissions + electricity_emissions + diet_emissions + waste_emissions, 2
 )
-comparison = (total_emissions/average_emissions)*100
+comparison = round((total_emissions/average_emissions)*100,2)
 
 if st.button("Calculate CO2 Emissions"):
 
