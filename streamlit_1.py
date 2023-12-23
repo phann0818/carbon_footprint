@@ -40,10 +40,17 @@ EMISSION_FACTORS = {
 }
 
 # Set wide layout and page name
-st.set_page_config(layout="centered", page_title="Personal Carbon Calculator")
-
+st.set_page_config(
+    page_title="Personal Carbon Calculator yo~",
+    page_icon="🌱",
+    layout="centered",
+    initial_sidebar_state="auto",
+    menu_items={
+        'About': "# nghĩ sau chứ chưa nghĩ ra"
+    }
+)
 # Streamlit app code
-st.title("Personal Carbon Calculator")
+# st.title("Personal Carbon Calculator")
 
 # User inputs
 st.subheader("🌍 Your Country")
