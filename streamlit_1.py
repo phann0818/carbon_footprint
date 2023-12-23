@@ -40,7 +40,7 @@ EMISSION_FACTORS = {
 }
 
 # Set wide layout and page name
-st.set_page_config(layout="wide", page_title="Personal Carbon Calculator")
+st.set_page_config(layout="centered", page_title="Personal Carbon Calculator")
 
 # Streamlit app code
 st.title("Personal Carbon Calculator")
