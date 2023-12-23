@@ -44,8 +44,7 @@ st.set_page_config(
     page_title="Personal Carbon Calculator yo~",
     page_icon="🌱",
     layout="centered",
-    initial_sidebar_state="auto",
-    }
+    initial_sidebar_state="auto"
 )
 # Streamlit app code
 st.title("Personal :green[Carbon Calculator]")
