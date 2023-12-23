@@ -2,7 +2,14 @@ import streamlit as st
 
 # Define emission factors (example values, replace with accurate data)
 EMISSION_FACTORS = {
-    "China": {
+    "India": {
+        "Transportation": 1.6,  # kgCO2/km
+        "Electricity": 0.82,  # kgCO2/kWh
+        "Diet": 1.25,  # kgCO2/meal, 2.5kgco2/kg
+        "Waste": 0.5  # kgCO2/kg
+        "AverageEmissions": 1.68 #per capita, tons
+    }
+    , "China": {
         "Transportation": 6.3,  # kgCO2/km
         "Electricity": 0.64,  # kgCO2/kWh
         "Diet": 1.6,  # kgCO2/meal
@@ -40,7 +47,7 @@ st.title("Personal Carbon Calculator")
 
 # User inputs
 st.subheader("🌍 Your Country")
-country = st.selectbox("Select", ["India","EU","USA","China","Vietnam"])
+country = st.selectbox("Select", ["China","EU","India","USA","Vietnam"])
 
 col1, col2 = st.columns(2)
 
@@ -104,4 +111,4 @@ if st.button("Calculate CO2 Emissions"):
     with col4:
         st.subheader("Total Carbon Footprint")
         st.success(f"🌍 Your total carbon footprint is: {total_emissions} tonnes CO2 per year")
-        st.warning("The average emissions per capita in your country is {average_emissions} tonnes per year. Your total carbon footprint is equivalent to {comparison}% of your average national carbon footprint")
+        st.warning("The average emissions per capita in your country is {average_emissions} tonnes in 2020. Your total carbon footprint is equivalent to {comparison}% of your emissions per capita in 2020")
