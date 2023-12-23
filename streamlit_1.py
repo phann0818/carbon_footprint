@@ -6,7 +6,7 @@ EMISSION_FACTORS = {
         "Transportation": 1.6,  # kgCO2/km
         "Electricity": 0.82,  # kgCO2/kWh
         "Diet": 1.25,  # kgCO2/meal, 2.5kgco2/kg
-        "Waste": 0.5  # kgCO2/kg
+        "Waste": 0.5,  # kgCO2/kg
         "AverageEmissions": 1.68 #per capita, tons
     }
     , "China": {
@@ -111,4 +111,4 @@ if st.button("Calculate CO2 Emissions"):
     with col4:
         st.subheader("Total Carbon Footprint")
         st.success(f"🌍 Your total carbon footprint is: {total_emissions} tonnes CO2 per year")
-        st.warning("The average emissions per capita in your country is {average_emissions} tonnes in 2020. Your total carbon footprint is equivalent to {comparison}% of your emissions per capita in 2020")
+        st.warning(f"The average emissions per capita in your country is {average_emissions} tonnes in 2020. Your total carbon footprint is equivalent to {comparison}% of your emissions per capita in 2020")
