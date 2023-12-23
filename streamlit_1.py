@@ -47,7 +47,7 @@ st.set_page_config(
     initial_sidebar_state="auto"
 )
 # Streamlit app code
-st.title("Personal :green[Carbon Calculator]")
+st.title("Personal :green[Carbon Calculator] yo 👩🏻‍💻")
 st.subheader("About: nghĩ sau lừi we")
 
 # User inputs
