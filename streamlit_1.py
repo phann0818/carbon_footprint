@@ -1,5 +1,12 @@
 import streamlit as st
 
+[theme]
+primaryColor="#F63366"
+backgroundColor="#FFFFFF"
+secondaryBackgroundColor="#F0F2F6"
+textColor="#262730"
+font="sans serif"
+
 # Define emission factors (example values, replace with accurate data)
 EMISSION_FACTORS = {
     "India": {
@@ -131,7 +138,7 @@ if st.button("Calculate CO2 Emissions"):
     
     st.subheader("Total Carbon Footprint")
     st.success(f"🌍 Your total carbon footprint is: {total_emissions} tonnes CO2 per year")
-    st.info(f"The average emissions per capita in your country is {average_emissions} tonnes in 2020. Your total carbon footprint is equivalent to {comparison}% of your emissions per capita in 2020")
+    st.info(f"The average emissions per capita in your country is {average_emissions} tonnes in 2020. Your total carbon footprint is equivalent to {comparison}% {country}'s emissions per capita in 2020")
 
     st.subheader("Carbon Emissions by Category")
     st.info(f"🚦 Transportation: {transportation_emissions} tonnes CO2 per year")
