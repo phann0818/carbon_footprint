@@ -128,7 +128,7 @@ total_emissions = round(
 comparison = round((total_emissions/average_emissions)*100,2)
 
 # Create a centered container for the button
-st.container():
+with st.container():
     st.session_state.button_clicked = st.button(
         "Calculate CO2 Emissions",
         key="calculate_button",  # Add a key to avoid unnecessary re-runs
