@@ -69,18 +69,17 @@ with col1:
     st.subheader("Daily commute distance (in km) 🚦")
     distance = st.slider("Distance", 0.0, 100.0, key="distance_input")
 
-    st.subheader("Your mean of transportation")
-    transportation = st.selectbox("Select your main mean of transportation", ["Public","Personal"])
-    print("Personal transportation includes both car and motobike")
+    st.subheader("Your diet information")
+    meal_type = st.selectbox("Select your diet", ["Vegan","Vegetarian","Omnivoire"])
 
     st.subheader("Monthly electricity consumption (in kWh) ⚡")
     electricity = st.slider("Electricity", 0.0, 1000.0, key="electricity_input")
 
 
 with col2:
-
-    st.subheader("Your diet information")
-    meal_type = st.selectbox("Select your diet", ["Vegan","Vegetarian","Omnivoire"])
+    st.subheader("Your mean of transportation")
+    transportation = st.selectbox("Select your main mean of transportation", ["Public","Personal"])
+    st.text("Personal transportation includes both car and motobike")
 
     st.subheader("Number of meals per day 🍲")
     meals = st.slider("Meals", 0, key="meals_input")   
