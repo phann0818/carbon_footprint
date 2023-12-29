@@ -73,7 +73,7 @@ with col1:
     meal_type = st.selectbox("Select your diet", ["Vegan","Vegetarian","Omnivoire"])
 
     st.subheader("Monthly electricity consumption (in kWh) ⚡")
-    electricity = st.slider("Electricity", 0.0, 1000.0, key="electricity_input")
+    electricity = st.slider("Electricity", 0, 1000, key="electricity_input")
 
 
 with col2:
@@ -82,7 +82,7 @@ with col2:
     st.text("Personal transportation includes both car and motobike")
 
     st.subheader("Number of meals per day 🍲")
-    meals = st.slider("Meals", 0, 10, key="meals_input")   
+    meals = st.number_input("Meals", 0, 10, key="meals_input")   
 
     st.subheader("Waste generated per week (in kg) 🚮")
     waste = st.slider("Waste", 0, 100, key="waste_input") 
