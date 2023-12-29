@@ -148,9 +148,11 @@ button_style = """
         <style>
         .stButton > button {
             color: black;
-            width: 200px;
-            height: 100px;
+            width: 150px;
+            height: 50px;
         }
+
+        
 
       #root > div:nth-child(1) > div > div > div > div > section.main.css-1v3fvcr.egzxvld1 > div > div:nth-child(1) > div > div.css-ocqkz7.e1tzin5v0 > div:nth-child(1) > div:nth-child(1) > div > div:nth-child(2) > div > button {
         background:#28a745; 
@@ -161,4 +163,6 @@ button_style = """
         </style>
         """
 st.markdown(button_style, unsafe_allow_html=True)
+
+st.beta_columns(st.button("Calculate CO2 Emissions"))
 
