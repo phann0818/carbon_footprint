@@ -69,6 +69,8 @@ with col1:
     st.subheader("Daily commute distance (in km) 🚦")
     distance = st.number_input("Distance", 0, 100, key="distance_input")
     st.text("")
+    st.text("")
+    st.text("")
     
     st.subheader("Your diet information")
     meal_type = st.selectbox("Select your diet", ["Vegan","Vegetarian","Omnivoire"])
