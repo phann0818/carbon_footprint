@@ -130,17 +130,22 @@ comparison = round((total_emissions/average_emissions)*100,2)
 # Create a centered container for the button
 with st.container():
     st.session_state.button_clicked = st.button("Calculate CO2 Emissions", key="calculate_button")
-        st.markdown(
+    st.markdown(
         """
         <style>
         #calculate_button {
             width: 200px;
+            height: 200px;
+            border: 3px solid green; 
+            text-align: center;
             align-items: center;
+            justify-content: center;
         }
         </style>
         """,
         unsafe_allow_html=True
     )
+
 if st.session_state.button_clicked:
     # Display results
     st.header("Results")
