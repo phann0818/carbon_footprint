@@ -66,7 +66,7 @@ country = st.selectbox("Select", ["China","EU","India","USA","Vietnam"])
 col1, col2 = st.columns(2)
 
 with col1:
-    st.subheader("Daily commute distance (km)")
+    st.subheader("Daily travel distance (km)")
     distance = st.number_input("Distance", 0, 100, key="distance_input")
     
     st.subheader("Your diet information")
