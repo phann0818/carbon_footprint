@@ -67,7 +67,7 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.subheader("Daily commute distance (in km) 🚦")
-    distance = st.slider("Distance", 0.0, 100.0, key="distance_input")
+    distance = st.slider("Distance", 0, 100, key="distance_input")
 
     st.subheader("Your diet information")
     meal_type = st.selectbox("Select your diet", ["Vegan","Vegetarian","Omnivoire"])
@@ -82,10 +82,10 @@ with col2:
     st.text("Personal transportation includes both car and motobike")
 
     st.subheader("Number of meals per day 🍲")
-    meals = st.slider("Meals", 0, key="meals_input")   
+    meals = st.slider("Meals", 0, 10, key="meals_input")   
 
     st.subheader("Waste generated per week (in kg) 🚮")
-    waste = st.slider("Waste", 0.0, 100.0, key="waste_input") 
+    waste = st.slider("Waste", 0, 100, key="waste_input") 
 
 # Normalize inputs
 if distance > 0:
