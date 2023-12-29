@@ -6,8 +6,8 @@ EMISSION_FACTORS = {
         "Electricity": 0.82,  # kgCO2/kWh
         "Vegetarian": 0.55,  # kgCO2/meal, 2.5kgco2/kg
         "Vegan": 0.3,
-        "Omnivoire": 1.25 ,
-        "Waste": 0.5  # kgCO2/kg
+        "Omnivoire": 1.25,
+        "Waste": 0.5,  # kgCO2/kg
         "AverageEmissions": 1.68 #per capita, tons
     }
     ,"China": {
@@ -90,8 +90,7 @@ if waste > 0:
 # Calculate carbon emissions
 transportation_emissions = EMISSION_FACTORS[country]["Transportation"] * distance
 electricity_emissions = EMISSION_FACTORS[country]["Electricity"] * electricity
-if meals > 0:
-    if meal_type = "Vegan": diet_emissions = EMISSION_FACTORS[country]["Vegan"] * meals
+if meal_type = "Vegan": diet_emissions = EMISSION_FACTORS[country]["Vegan"] * meals
 elif meal_type = "Vegetarian": diet_emissions = EMISSION_FACTORS[country]["Vegetarian"] * meals
 else: diet_emissions = EMISSION_FACTORS[country]["Omnivoire"] * meals
 waste_emissions = EMISSION_FACTORS[country]["Waste"] * waste
