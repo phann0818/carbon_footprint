@@ -90,8 +90,8 @@ if waste > 0:
 # Calculate carbon emissions
 transportation_emissions = EMISSION_FACTORS[country]["Transportation"] * distance
 electricity_emissions = EMISSION_FACTORS[country]["Electricity"] * electricity
-if meal_type = "Vegan": diet_emissions = EMISSION_FACTORS[country]["Vegan"] * meals
-elif meal_type = "Vegetarian": diet_emissions = EMISSION_FACTORS[country]["Vegetarian"] * meals
+if meal_type == "Vegan": diet_emissions = EMISSION_FACTORS[country]["Vegan"] * meals
+elif meal_type == "Vegetarian": diet_emissions = EMISSION_FACTORS[country]["Vegetarian"] * meals
 else: diet_emissions = EMISSION_FACTORS[country]["Omnivoire"] * meals
 waste_emissions = EMISSION_FACTORS[country]["Waste"] * waste
 average_emissions = EMISSION_FACTORS[country]["AverageEmissions"]
