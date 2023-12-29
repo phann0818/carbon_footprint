@@ -1,17 +1,20 @@
 import streamlit as st
 
+# Define emission factors (example values, replace with accurate data)
 EMISSION_FACTORS = {
     "India": {
-        "Transportation": 1.6,  # kgCO2/km
+        "Public": 0.035,  # kgCO2/km
+        "Personal": 0.15,
         "Electricity": 0.82,  # kgCO2/kWh
         "Vegetarian": 0.55,  # kgCO2/meal, 2.5kgco2/kg
         "Vegan": 0.3,
-        "Omnivoire": 1.25,
+        "Omnivoire": 1.25 ,
         "Waste": 0.5,  # kgCO2/kg
         "AverageEmissions": 1.68 #per capita, tons
     }
     ,"China": {
-        "Transportation": 6.3,  # kgCO2/km
+        "Public": 0.002,  # kgCO2/km
+        "Personal": 0.16,
         "Electricity": 0.64,  # kgCO2/kWh
         "Vegetarian": 0.3,  # kgCO2/meal
         "Vegan": 0.4,
@@ -20,8 +23,8 @@ EMISSION_FACTORS = {
         "AverageEmissions": 7.8 #per capita, tons
     }
     , "EU": {
-        "Transportation": 13.2,  # kgCO2/km
-        "Electricity": 0.24,  # kgCO2/kWh
+        "Public": 0.002,  # kgCO2/km
+        "Personal": 0.14,
         "Vegetarian": 0.35,  # kgCO2/meal,
         "Vegan": 0.32,
         "Omnivoire": 1.25,
@@ -29,7 +32,8 @@ EMISSION_FACTORS = {
         "AverageEmissions": 7.8 #per capita, tons
     }
     , "USA": {
-        "Transportation": 14.3,  # kgCO2/km
+        "Public": 0.002,  # kgCO2/km
+        "Personal": 0.17,
         "Electricity": 0.48,  # kgCO2/kWh
         "Vegetarian": 0.45,  # kgCO2/meal, estimated by project drawdown
         "Vegan": 0.38,
@@ -38,7 +42,8 @@ EMISSION_FACTORS = {
         "AverageEmissions": 13 #per capita, tons
     }
     , "Vietnam": {
-        "Transportation": 1,  # kgCO2/km
+        "Public": 0.002,  # kgCO2/km
+        "Personal": 0.16,
         "Electricity": 0.6,  # kgCO2/kWh
         "Vegetarian": 0.33,  # kgCO2/meal, 2.5kgco2/kg
         "Vegan": 0.28,
@@ -64,18 +69,24 @@ with col1:
     st.subheader("Daily commute distance (in km) 🚦")
     distance = st.number_input("Distance", 0.0, 100.0, key="distance_input")
 
+    st.subheader("Your diet information")
+    transportation = st.selectbox("Select your main way of transportation", ["Public","Personal"])
+    print("Personal transportation includes both car and motobike")
+
     st.subheader("Monthly electricity consumption (in kWh) ⚡")
     electricity = st.number_input("Electricity", 0.0, 1000.0, key="electricity_input")
 
-    st.subheader("Waste generated per week (in kg) 🚮")
-    waste = st.number_input("Waste", 0.0, 100.0, key="waste_input")
+
 with col2:
 
     st.subheader("Your diet information")
     meal_type = st.selectbox("Select your diet", ["Vegan","Vegetarian","Omnivoire"])
 
     st.subheader("Number of meals per day ")
-    meals = st.number_input("Meals", 0, key="meals_input")    
+    meals = st.number_input("Meals", 0, key="meals_input")   
+
+    st.subheader("Waste generated per week (in kg) 🚮")
+    waste = st.number_input("Waste", 0.0, 100.0, key="waste_input") 
 
 # Normalize inputs
 if distance > 0:
@@ -88,11 +99,17 @@ if waste > 0:
     waste = waste * 52  # Convert weekly waste to yearly
 
 # Calculate carbon emissions
-transportation_emissions = EMISSION_FACTORS[country]["Transportation"] * distance
+#separate transportation_type
+if transportation == "Personal": transportation_emissions = EMISSION_FACTORS[country]["Personal"] * distance
+else: transportation_emissions = EMISSION_FACTORS[country]["Public"] * distance
+
 electricity_emissions = EMISSION_FACTORS[country]["Electricity"] * electricity
+
+#separate meal_type
 if meal_type == "Vegan": diet_emissions = EMISSION_FACTORS[country]["Vegan"] * meals
 elif meal_type == "Vegetarian": diet_emissions = EMISSION_FACTORS[country]["Vegetarian"] * meals
 else: diet_emissions = EMISSION_FACTORS[country]["Omnivoire"] * meals
+
 waste_emissions = EMISSION_FACTORS[country]["Waste"] * waste
 average_emissions = EMISSION_FACTORS[country]["AverageEmissions"]
 
