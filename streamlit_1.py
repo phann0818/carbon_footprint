@@ -67,13 +67,13 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.subheader("Daily commute distance (in km) 🚦")
-    distance = st.slider("Distance", 0, 100, key="distance_input")
+    distance = st.number_input("Distance", 0, 100, key="distance_input")
 
     st.subheader("Your diet information")
     meal_type = st.selectbox("Select your diet", ["Vegan","Vegetarian","Omnivoire"])
 
     st.subheader("Monthly electricity consumption (in kWh) ⚡")
-    electricity = st.slider("Electricity", 0, 1000, key="electricity_input")
+    electricity = st.number_input("Electricity", 0, 1000, key="electricity_input")
 
 
 with col2:
@@ -85,7 +85,7 @@ with col2:
     meals = st.number_input("Meals", 0, 10, key="meals_input")   
 
     st.subheader("Waste generated per week (in kg) 🚮")
-    waste = st.slider("Waste", 0, 100, key="waste_input") 
+    waste = st.number_input("Waste", 0, 100, key="waste_input") 
 
 # Normalize inputs
 if distance > 0:
@@ -128,6 +128,10 @@ if st.button("Calculate CO2 Emissions"):
 
     # Display results
     st.header("Results")
+    
+    st.subheader("Total Carbon Footprint")
+    st.success(f"🌍 Your total carbon footprint is: {total_emissions} tonnes CO2 per year")
+    st.info(f"The average emissions per capita in your country is {average_emissions} tonnes in 2020. Your total carbon footprint is equivalent to {comparison}% of your emissions per capita in 2020")
 
     st.subheader("Carbon Emissions by Category")
     st.info(f"🚦 Transportation: {transportation_emissions} tonnes CO2 per year")
@@ -135,6 +139,3 @@ if st.button("Calculate CO2 Emissions"):
     st.info(f"🍲 Diet: {diet_emissions} tonnes CO2 per year")
     st.info(f"🚮 Waste: {waste_emissions} tonnes CO2 per year")
 
-    st.subheader("Total Carbon Footprint")
-    st.success(f"🌍 Your total carbon footprint is: {total_emissions} tonnes CO2 per year")
-    st.info(f"The average emissions per capita in your country is {average_emissions} tonnes in 2020. Your total carbon footprint is equivalent to {comparison}% of your emissions per capita in 2020")
