@@ -127,25 +127,8 @@ total_emissions = round(
 )
 comparison = round((total_emissions/average_emissions)*100,2)
 
+
 if st.button("Calculate CO2 Emissions"):
-#Changing Button Styles Color and Size
-button_style = """
-        <style>
-        .stButton > button {
-            color: black;
-            width: 100px;
-            height: 50px;
-        }
-
-      #root > div:nth-child(1) > div > div > div > div > section.main.css-1v3fvcr.egzxvld1 > div > div:nth-child(1) > div > div.css-ocqkz7.e1tzin5v0 > div:nth-child(1) > div:nth-child(1) > div > div:nth-child(2) > div > button {
-        background:#28a745; 
-        color:white;
-        
-      }
-
-        </style>
-        """
-st.markdown(button_style, unsafe_allow_html=True)
 
     # Display results
     st.header("Results")
@@ -159,4 +142,23 @@ st.markdown(button_style, unsafe_allow_html=True)
     st.info(f"⚡ Electricity: {electricity_emissions} tonnes CO2 per year")
     st.info(f"🍲 Diet: {diet_emissions} tonnes CO2 per year")
     st.info(f"🚮 Waste: {waste_emissions} tonnes CO2 per year")
+
+#Changing Button Styles Color and Size
+button_style = """
+        <style>
+        .stButton > button {
+            color: black;
+            width: 200px;
+            height: 100px;
+        }
+
+      #root > div:nth-child(1) > div > div > div > div > section.main.css-1v3fvcr.egzxvld1 > div > div:nth-child(1) > div > div.css-ocqkz7.e1tzin5v0 > div:nth-child(1) > div:nth-child(1) > div > div:nth-child(2) > div > button {
+        background:#28a745; 
+        color:white;
+        
+      }
+
+        </style>
+        """
+st.markdown(button_style, unsafe_allow_html=True)
 
