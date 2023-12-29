@@ -69,8 +69,8 @@ with col1:
     st.subheader("Daily commute distance (in km) 🚦")
     distance = st.number_input("Distance", 0.0, 100.0, key="distance_input")
 
-    st.subheader("Your diet information")
-    transportation = st.selectbox("Select your main way of transportation", ["Public","Personal"])
+    st.subheader("Your mean of transportation")
+    transportation = st.selectbox("Select your main mean of transportation", ["Public","Personal"])
     print("Personal transportation includes both car and motobike")
 
     st.subheader("Monthly electricity consumption (in kWh) ⚡")
@@ -82,7 +82,7 @@ with col2:
     st.subheader("Your diet information")
     meal_type = st.selectbox("Select your diet", ["Vegan","Vegetarian","Omnivoire"])
 
-    st.subheader("Number of meals per day ")
+    st.subheader("Number of meals per day 🍲")
     meals = st.number_input("Meals", 0, key="meals_input")   
 
     st.subheader("Waste generated per week (in kg) 🚮")
@@ -130,16 +130,12 @@ if st.button("Calculate CO2 Emissions"):
     # Display results
     st.header("Results")
 
-    col3, col4 = st.columns(2)
+    st.subheader("Carbon Emissions by Category")
+    st.info(f"🚦 Transportation: {transportation_emissions} tonnes CO2 per year")
+    st.info(f"⚡ Electricity: {electricity_emissions} tonnes CO2 per year")
+    st.info(f"🍲 Diet: {diet_emissions} tonnes CO2 per year")
+    st.info(f"🚮 Waste: {waste_emissions} tonnes CO2 per year")
 
-    with col3:
-        st.subheader("Carbon Emissions by Category")
-        st.info(f"🚦 Transportation: {transportation_emissions} tonnes CO2 per year")
-        st.info(f"⚡ Electricity: {electricity_emissions} tonnes CO2 per year")
-        st.info(f"🍲 Diet: {diet_emissions} tonnes CO2 per year")
-        st.info(f"🚮 Waste: {waste_emissions} tonnes CO2 per year")
-
-    with col4:
-        st.subheader("Total Carbon Footprint")
-        st.success(f"🌍 Your total carbon footprint is: {total_emissions} tonnes CO2 per year")
-        st.warning(f"The average emissions per capita in your country is {average_emissions} tonnes in 2020. Your total carbon footprint is equivalent to {comparison}% of your emissions per capita in 2020")
+    st.subheader("Total Carbon Footprint")
+    st.success(f"🌍 Your total carbon footprint is: {total_emissions} tonnes CO2 per year")
+    st.info(f"The average emissions per capita in your country is {average_emissions} tonnes in 2020. Your total carbon footprint is equivalent to {comparison}% of your emissions per capita in 2020")
