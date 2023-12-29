@@ -1,57 +1,61 @@
 import streamlit as st
 
-# Define emission factors (example values, replace with accurate data)
 EMISSION_FACTORS = {
     "India": {
         "Transportation": 1.6,  # kgCO2/km
         "Electricity": 0.82,  # kgCO2/kWh
-        "Diet": 1.25,  # kgCO2/meal, 2.5kgco2/kg
-        "Waste": 0.5,  # kgCO2/kg
+        "Vegetarian": 0.55,  # kgCO2/meal, 2.5kgco2/kg
+        "Vegan": 0.3,
+        "Omnivoire": 1.25 ,
+        "Waste": 0.5  # kgCO2/kg
         "AverageEmissions": 1.68 #per capita, tons
     }
-    , "China": {
+    ,"China": {
         "Transportation": 6.3,  # kgCO2/km
         "Electricity": 0.64,  # kgCO2/kWh
-        "Diet": 1.6,  # kgCO2/meal
+        "Vegetarian": 0.3,  # kgCO2/meal
+        "Vegan": 0.4,
+        "Omnivoire": 1.6,
         "Waste": 0.55,  # kgCO2/kg
         "AverageEmissions": 7.8 #per capita, tons
     }
     , "EU": {
         "Transportation": 13.2,  # kgCO2/km
         "Electricity": 0.24,  # kgCO2/kWh
-        "Diet": 1.25,  # kgCO2/meal,
+        "Vegetarian": 0.35,  # kgCO2/meal,
+        "Vegan": 0.32,
+        "Omnivoire": 1.25,
         "Waste": 0.35,  # kgCO2/kg
         "AverageEmissions": 7.8 #per capita, tons
     }
     , "USA": {
         "Transportation": 14.3,  # kgCO2/km
         "Electricity": 0.48,  # kgCO2/kWh
-        "Diet": 1.54,  # kgCO2/meal, estimated by project drawdown
+        "Vegetarian": 0.45,  # kgCO2/meal, estimated by project drawdown
+        "Vegan": 0.38,
+        "Omnivoire": 1.54,
         "Waste": 0.45,  # kgCO2/kg
         "AverageEmissions": 13 #per capita, tons
     }
     , "Vietnam": {
         "Transportation": 1,  # kgCO2/km
         "Electricity": 0.6,  # kgCO2/kWh
-        "Diet": 1,  # kgCO2/meal, 2.5kgco2/kg
+        "Vegetarian": 0.33,  # kgCO2/meal, 2.5kgco2/kg
+        "Vegan": 0.28,
+        "Omnivoire": 1,
         "Waste": 0.45,  # kgCO2/kg
         "AverageEmissions": 3.7 #per capita, tons
     }
 }
 
 # Set wide layout and page name
-st.set_page_config(
-    page_title="Personal Carbon Calculator yo~",
-    page_icon="🌱",
-    layout="wide",
-    initial_sidebar_state="auto"
-)
+st.set_page_config(layout="wide", page_title="Calculate Your Carbon Footprint")
+
 # Streamlit app code
-st.title("Personal :green[Carbon Calculator] yo 👩🏻‍💻")
-st.subheader("About: nghĩ sau lừi we")
+st.title("Calculate Your Carbon Footprint")
 
 # User inputs
-st.subheader("🌍 Your Country")
+st.subheader("Your Country")
 country = st.selectbox("Select", ["China","EU","India","USA","Vietnam"])
 
 col1, col2 = st.columns(2)
@@ -63,12 +67,15 @@ with col1:
     st.subheader("Monthly electricity consumption (in kWh) ⚡")
     electricity = st.number_input("Electricity", 0.0, 1000.0, key="electricity_input")
 
-with col2:
     st.subheader("Waste generated per week (in kg) 🚮")
     waste = st.number_input("Waste", 0.0, 100.0, key="waste_input")
+with col2:
+
+    st.subheader("Your diet information")
+    meal_type = st.selectbox("Select your diet", ["Vegan","Vegetarian","Omnivoire"])
 
     st.subheader("Number of meals per day ")
-    meals = st.number_input("Meals", 0, key="meals_input")
+    meals = st.number_input("Meals", 0, key="meals_input")    
 
 # Normalize inputs
 if distance > 0:
@@ -83,7 +90,10 @@ if waste > 0:
 # Calculate carbon emissions
 transportation_emissions = EMISSION_FACTORS[country]["Transportation"] * distance
 electricity_emissions = EMISSION_FACTORS[country]["Electricity"] * electricity
-diet_emissions = EMISSION_FACTORS[country]["Diet"] * meals
+if meals > 0:
+    if meal_type = "Vegan": diet_emissions = EMISSION_FACTORS[country]["Vegan"] * meals
+elif meal_type = "Vegetarian": diet_emissions = EMISSION_FACTORS[country]["Vegetarian"] * meals
+else: diet_emissions = EMISSION_FACTORS[country]["Omnivoire"] * meals
 waste_emissions = EMISSION_FACTORS[country]["Waste"] * waste
 average_emissions = EMISSION_FACTORS[country]["AverageEmissions"]
 
