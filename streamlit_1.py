@@ -67,14 +67,14 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.subheader("Daily commute distance (in km) 🚦")
-    distance = st.number_input("Distance", 0.0, 100.0, key="distance_input")
+    distance = st.slider("Distance", 0.0, 100.0, key="distance_input")
 
     st.subheader("Your mean of transportation")
     transportation = st.selectbox("Select your main mean of transportation", ["Public","Personal"])
     print("Personal transportation includes both car and motobike")
 
     st.subheader("Monthly electricity consumption (in kWh) ⚡")
-    electricity = st.number_input("Electricity", 0.0, 1000.0, key="electricity_input")
+    electricity = st.slider("Electricity", 0.0, 1000.0, key="electricity_input")
 
 
 with col2:
@@ -83,10 +83,10 @@ with col2:
     meal_type = st.selectbox("Select your diet", ["Vegan","Vegetarian","Omnivoire"])
 
     st.subheader("Number of meals per day 🍲")
-    meals = st.number_input("Meals", 0, key="meals_input")   
+    meals = st.slider("Meals", 0, key="meals_input")   
 
     st.subheader("Waste generated per week (in kg) 🚮")
-    waste = st.number_input("Waste", 0.0, 100.0, key="waste_input") 
+    waste = st.slider("Waste", 0.0, 100.0, key="waste_input") 
 
 # Normalize inputs
 if distance > 0:
