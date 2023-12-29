@@ -1,12 +1,5 @@
 import streamlit as st
 
-# [theme]
-primaryColor="#F63366"
-backgroundColor="#FFFFFF"
-secondaryBackgroundColor="#F0F2F6"
-textColor="#262730"
-font="sans serif"
-
 # Define emission factors (example values, replace with accurate data)
 EMISSION_FACTORS = {
     "India": {
@@ -75,7 +68,8 @@ col1, col2 = st.columns(2)
 with col1:
     st.subheader("Daily commute distance (in km) 🚦")
     distance = st.number_input("Distance", 0, 100, key="distance_input")
-
+    st.text("")
+    
     st.subheader("Your diet information")
     meal_type = st.selectbox("Select your diet", ["Vegan","Vegetarian","Omnivoire"])
 
