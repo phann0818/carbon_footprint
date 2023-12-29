@@ -143,26 +143,13 @@ if st.button("Calculate CO2 Emissions"):
     st.info(f"🍲 Diet: {diet_emissions} tonnes CO2 per year")
     st.info(f"🚮 Waste: {waste_emissions} tonnes CO2 per year")
 
-#Changing Button Styles Color and Size
-button_style = """
-        <style>
-        .stButton > button {
-            color: black;
-            width: 150px;
-            height: 50px;
-        }
-
-        
-
-      #root > div:nth-child(1) > div > div > div > div > section.main.css-1v3fvcr.egzxvld1 > div > div:nth-child(1) > div > div.css-ocqkz7.e1tzin5v0 > div:nth-child(1) > div:nth-child(1) > div > div:nth-child(2) > div > button {
-        background:#28a745; 
-        color:white;
-        
-      }
-
-        </style>
-        """
-st.markdown(button_style, unsafe_allow_html=True)
-
-st.beta_columns(st.button("Calculate CO2 Emissions"))
+# Create a centered container for the button
+st.container():
+    st.session_state.button_clicked = st.button(
+        "Calculate CO2 Emissions",
+        key="calculate_button",  # Add a key to avoid unnecessary re-runs
+        # Increase button size and center it horizontally
+        width=200,  # Adjust width as needed
+        align="center"
+    )
 
