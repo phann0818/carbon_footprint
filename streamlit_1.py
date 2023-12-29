@@ -1,4 +1,5 @@
 import streamlit as st
+pip install --upgrade streamlit
 
 # Define emission factors (example values, replace with accurate data)
 EMISSION_FACTORS = {
