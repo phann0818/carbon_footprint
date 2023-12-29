@@ -66,16 +66,13 @@ country = st.selectbox("Select", ["China","EU","India","USA","Vietnam"])
 col1, col2 = st.columns(2)
 
 with col1:
-    st.subheader("Daily commute distance (in km) 🚦")
+    st.subheader("Daily commute distance (km)")
     distance = st.number_input("Distance", 0, 100, key="distance_input")
-    st.text("")
-    st.text("")
-    st.text("")
     
     st.subheader("Your diet information")
     meal_type = st.selectbox("Select your diet", ["Vegan","Vegetarian","Omnivoire"])
 
-    st.subheader("Monthly electricity consumption (in kWh) ⚡")
+    st.subheader("Monthly electricity consumption (kWh)")
     electricity = st.number_input("Electricity", 0, 1000, key="electricity_input")
 
 
@@ -84,10 +81,10 @@ with col2:
     transportation = st.selectbox("Select your main mean of transportation", ["Public","Personal"])
     st.text("Personal transportation includes both car and motobike")
 
-    st.subheader("Number of meals per day 🍲")
+    st.subheader("Number of meals per day")
     meals = st.number_input("Meals", 0, 10, key="meals_input")   
 
-    st.subheader("Waste generated per week (in kg) 🚮")
+    st.subheader("Waste generated per week (kg)")
     waste = st.number_input("Waste", 0, 100, key="waste_input") 
 
 # Normalize inputs
